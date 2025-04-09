@@ -38,6 +38,8 @@ export class AuthResolver {
     return this.authService.loginWithBiometric(biometricInput.biometricKey);
   }
 
+  // This mutation is protected by the JWT guard, only authenticated users can access it
+  // The user ID is extracted from the JWT token using the CurrentUser decorator
   @UseGuards(JwtAuthGuard)
   @Mutation(() => User)
   async registerBiometric(

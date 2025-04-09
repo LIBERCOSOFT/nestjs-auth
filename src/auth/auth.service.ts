@@ -13,10 +13,11 @@ export class AuthService {
   async validateUser(email: string, password: string) {
     const user = await this.usersService.findOne(email);
     if (user && (await bcrypt.compare(password, user.password))) {
-      // Exclude password from returned user
-      const { ...safeUser } = user;
+      const { password, ...safeUser } = user;
+      void password;
       return safeUser;
     }
+
     return null;
   }
 
@@ -31,7 +32,8 @@ export class AuthService {
 
   async register(email: string, password: string) {
     const user = await this.usersService.create(email, password);
-    const { ...safeUser } = user;
+    const { password: _password, ...safeUser } = user;
+    void _password;
     return this.login(safeUser);
   }
 
@@ -40,7 +42,8 @@ export class AuthService {
     if (!user) {
       throw new UnauthorizedException('Invalid biometric key');
     }
-    const { ...safeUser } = user;
+    const { password, ...safeUser } = user;
+    void password;
     return safeUser;
   }
 
@@ -54,7 +57,8 @@ export class AuthService {
       userId,
       biometricKey,
     );
-    const { ...safeUser } = user;
+    const { password, ...safeUser } = user;
+    void password;
     return safeUser;
   }
 }

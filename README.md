@@ -1,98 +1,344 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+<a name="readme-top"></a>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# 📗 Table of Contents
+- [📖 About the Project](#about-project)
 
-## Description
+  - [🛠 Built With](#built-with)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+    - [Tech Stack](#tech-stack)
 
-## Project setup
+    - [Key Features](#key-features)
 
-```bash
-$ pnpm install
+  - [🚀 Live Demo](#live-demo)
+
+- [💻 Getting Started](#getting-started)
+
+  - [Prerequisites](#prerequisites)
+
+  - [Setup](#setup)
+
+  - [Install](#install)
+
+  - [Environment Setup](#environment_setup)
+
+  - [Start Postgres](#start_postgres)
+  
+  - [Run Prisma Migations](#prisma)
+  
+  - [Usage](#usage)
+  
+  - [Run tests](#run-tests)
+
+  - [Deployment](#deployment)
+
+- [👥 Authors](#authors)
+
+- [🔭 Future Features](#future-features)
+
+
+
+<!-- PROJECT DESCRIPTION -->
+
+
+
+# 📖 NestJS GraphQL API with Authentication <a name="about-project"></a>
+
+
+
+**NestJS GraphQL API with Authentication** is a RESTful API service using NestJS with TypeScript that supports user authentication (standard and biometric), registration, and utilizes Prisma as the ORM. The API is exposed through GraphQL.
+
+
+
+## 🛠 Built With <a name="built-with"></a>
+
+
+
+### Tech Stack <a name="tech-stack"></a>
+
+
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://nestjs.com/">NestJS</a></li>
+    <li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
+    <li><a href="https://graphql.org/">GraphQL</a></li>
+    <li><a href="https://www.prisma.io/">Prisma</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
+
+
+### Key Features <a name="key-features"></a>
+
+
+
+-   **User Registration:** Allows users to create new accounts with email and password.
+-   **User Login:** Supports standard email/password login and biometric key login.
+-   **Biometric Authentication:** Enables users to register and login using biometric keys.
+
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- LIVE DEMO -->
+
+
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+
+- [Coming Soon](https://google.com)
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+This project uses [pnpm](https://pnpm.io/) as the package manager.
+
+> 💡 We recommend using `pnpm` to ensure consistency with the lockfile and avoid dependency issues.
+
+However, if you're more comfortable with `npm` or `yarn`, you may use them — but we do not guarantee compatibility.
+
+To get a local copy up and running, follow these steps.
+
+
+
+### Prerequisites
+
+
+
+In order to run this project you need:
+
+-   Node.js (v18 or later)
+-   PNPM or NPM or Yarn
+-   Docker and Docker Compose (for PostgreSQL)
+
+
+### Setup
+
+
+
+Clone this repository to your desired folder, open your termival and type:
+
+```sh
+
+  git clone https://github.com/LIBERCOSOFT/nestjs-auth.git
+
 ```
 
-## Compile and run the project
 
-```bash
-# development
-$ pnpm run start
 
-# watch mode
-$ pnpm run start:dev
+### Install
 
-# production mode
-$ pnpm run start:prod
+
+
+Install this project's dependencies with either Yarn or NPM or PNPM:
+
+
+```sh
+
+  cd nestjs-auth
+
+  npm/yarn/pnpm install
+
 ```
 
-## Run tests
+### Environment Setup
 
-```bash
-# unit tests
-$ pnpm run test
 
-# e2e tests
-$ pnpm run test:e2e
 
-# test coverage
-$ pnpm run test:cov
+Create a .env file in the root directory:
+
+
+```env
+
+  DATABASE_URL="postgresql://<USERNAME>:<PASSWORD>@localhost:<DATABASE_PORT>/<DATABASE_NAME>"
+
+  JWT_SECRET="your-secret-key"
+
 ```
 
-## Deployment
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Start PostgreSQL with Docker
 
-```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+
+
+To run the project with Docker, execute the following command:
+
+
+```sh
+
+  docker-compose up -d
+
+
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+OR
 
-## Resources
+To run the project with Docker with Yarn or NPM or PNPM, execute the following command:
 
-Check out a few resources that may come in handy when working with NestJS:
+```sh
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+ pnpm run db:up
 
-## Support
+ or
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+ npm run db:up
 
-## Stay in touch
+ or
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+ Yarn run db:up
 
-## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```
+
+
+### Run Prisma Migrations
+
+
+
+To run the Prisma migrations, run the following command:
+
+
+
+```sh
+
+  pnpm prisma generate
+
+  pnpm prisma migrate dev --name init
+
+  or
+
+  npx prisma generate
+
+  npx prisma migrate dev --name init
+
+  or
+
+  yarn prisma generate
+
+  yarn prisma migrate dev --name init
+
+
+```
+
+OR
+
+To run the Prisma migrations with Yarn or NPM or PNPM, run the following command:
+
+
+```sh
+
+  pnpm run migrate:dev
+
+  or
+
+  npm run migrate:dev
+
+  or
+
+  yarn run migrate:dev
+
+
+```
+
+
+### Usage
+
+
+
+You can run the development server with Yarn or NPM or PNPM using:
+
+
+```sh
+  
+  pnpm run start:dev
+
+  or
+
+  npm run start:dev
+
+  or
+
+  yarn run start:dev
+
+```
+
+> GraphQL Playground available at: ```http://localhost:3000/graphql```
+
+### Test
+
+
+You can run the tests with Yarn or NPM or PNPM using:
+
+
+```sh
+
+  pnpm test
+
+  or
+
+  npm test
+
+  or
+
+  yarn test
+
+```
+
+#### GraphQL Testing
+
+You can find useful sample GraphQL operations for testing in [`/graphql/playground/collection.md`](./graphql/playground/collection.md).
+
+
+### Deployment
+
+Deploy this project using your preferred service (Heroku, Render, DigitalOcean, etc.). Ensure that environment variables are properly configured.
+
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+## 👥 Authors <a name="authors"></a>
+
+
+👤 **Kolapo Akinrinlola**
+
+- GitHub: [LIBERCOSOFT](https://github.com/LIBERCOSOFT)
+- LinkedIn: [Kolapo Akinrinlola](https://linkedin.com/in/kolapo-akinrinlola)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Refresh token implementation**
+
+- [ ] **Multi-factor authentication**
+
+- [ ] **Admin dashboard for user management**
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
