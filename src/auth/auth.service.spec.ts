@@ -2,7 +2,12 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { JwtService } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
 import { UsersService } from '../users/users.service';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
+
+jest.mock('bcryptjs', () => ({
+  hash: jest.fn().mockResolvedValue('hashedpassword'),
+  compare: jest.fn().mockResolvedValue(true),
+}));
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -46,9 +51,10 @@ describe('AuthService', () => {
       const user = {
         id: '1',
         email: 'test@example.com',
-        password: await bcrypt.hash('password', 10),
+        password: 'hashedpassword', // Note: In real code, this is stored as a hash
       };
       mockUsersService.findOne.mockResolvedValue(user);
+      (bcrypt.compare as jest.Mock).mockResolvedValue(true); // Ensure bcrypt.compare always returns true
 
       const result = await service.validateUser('test@example.com', 'password');
       expect(result).toEqual({ id: '1', email: 'test@example.com' });
@@ -58,9 +64,10 @@ describe('AuthService', () => {
       const user = {
         id: '1',
         email: 'test@example.com',
-        password: await bcrypt.hash('password', 10),
+        password: 'hashedpassword',
       };
       mockUsersService.findOne.mockResolvedValue(user);
+      (bcrypt.compare as jest.Mock).mockResolvedValue(false); // Simulate password mismatch
 
       const result = await service.validateUser('test@example.com', 'wrong');
       expect(result).toBeNull();
