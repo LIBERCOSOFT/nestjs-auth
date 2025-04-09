@@ -5,18 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        NODE_ENV: production
     container_name: nestjs-auth-api
     ports:
       - '3000:3000'
     depends_on:
       - postgres
-    environment:
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5433/nestjs-auth?schema=public
-      JWT_SECRET: ${JWT_SECRET:-super-secret-key}
-      NODE_ENV: production
-      PORT: 3000
+    env_file:
+      - .env
     restart: unless-stopped
     networks:
       - app-network

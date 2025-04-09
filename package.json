@@ -20,9 +20,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "db:up": "docker-compose up -d",
-    "db:down": "docker-compose down",
-    "db:restart": "docker-compose down && docker-compose up -d"
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:restart": "docker-compose down && docker-compose up -d"
   },
   "dependencies": {
     "@apollo/server": "^4.12.0",

@@ -195,15 +195,15 @@ To run the project with Docker with Yarn or NPM or PNPM, execute the following c
 
 ```sh
 
- pnpm run db:up
+ pnpm run docker:up
 
  or
 
- npm run db:up
+ npm run docker:up
 
  or
 
- Yarn run db:up
+ Yarn run docker:up
 
 
 ```
